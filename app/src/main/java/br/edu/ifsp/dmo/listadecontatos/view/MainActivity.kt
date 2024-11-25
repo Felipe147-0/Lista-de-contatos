@@ -22,9 +22,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     private val listDatasource = ArrayList<Contact>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.v(TAG, "Executando o onCreate()")
+
         configClickListener()
         configListview()
     }
@@ -67,7 +69,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         super.onDestroy()
     }
 
-    override fun onItemClick ( parent: AdapterView<*>?, view: View?, position: Int, id: Long
+    override fun onItemClick(
+        parent: AdapterView<*>?, view: View?, position: Int, id: Long
     ) {
         /**
          * Ao clicar sobre um contato da lista, o aplicativo solicita
