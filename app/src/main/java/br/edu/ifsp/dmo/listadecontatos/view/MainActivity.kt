@@ -7,11 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import br.edu.ifsp.dmo.listadecontatos.R
 import br.edu.ifsp.dmo.listadecontatos.databinding.ActivityMainBinding
 import br.edu.ifsp.dmo.listadecontatos.databinding.NewContactDialogBinding
@@ -70,17 +67,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         super.onDestroy()
     }
 
-    override fun onItemClick(
-        parent: AdapterView<*>?, view: View?,
-        position: Int, id: Long
+    override fun onItemClick ( parent: AdapterView<*>?, view: View?, position: Int, id: Long
     ) {
         /**
          * Ao clicar sobre um contato da lista, o aplicativo solicita
          * ao Android que seja realizada uma chamada telefônica para
          * o número do contato selecionado.
          */
-        val selectContact =
-            binding.listviewContacts.adapter.getItem(position) as Contact
+        val selectContact = binding.listviewContacts.adapter.getItem(position) as Contact
         val uri = "tel:${selectContact.phone}"
         val intent = Intent(Intent.ACTION_DIAL)
         intent.data = Uri.parse(uri)
@@ -100,7 +94,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         binding.listviewContacts.onItemClickListener = this
     }
 
-    private fun updateListDatasoruce() {
+    private fun updateListDatasource() {
         listDatasource.clear()
         listDatasource.addAll(ContactDao.findAll())
         /**
@@ -141,7 +135,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
                             bindingDialog.edittextPhone.text.toString()
                         )
                     )
-                    updateListDatasoruce()
+                    updateListDatasource()
                     dialog.dismiss()
                 })
             .setNegativeButton(

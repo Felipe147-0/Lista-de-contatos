@@ -9,11 +9,8 @@ import br.edu.ifsp.dmo.listadecontatos.R
 import br.edu.ifsp.dmo.listadecontatos.databinding.ContactItemLayoutBinding
 import br.edu.ifsp.dmo.listadecontatos.model.Contact
 
-class ListContactAdapter(context: Context, data: List<Contact>) :
-    ArrayAdapter<Contact>(context, R.layout.contact_item_layout, data) {
+class ListContactAdapter(context: Context, data: List<Contact>) : ArrayAdapter<Contact>(context, R.layout.contact_item_layout, data) {
 
-    class ListContactAdapter(context: Context, data: List<Contact>) :
-        ArrayAdapter<Contact>(context, R.layout.contact_item_layout, data) {
         override fun getView(
             position: Int, convertView: View?, parent:
             ViewGroup
@@ -39,5 +36,4 @@ class ListContactAdapter(context: Context, data: List<Contact>) :
             binding.textviewItemPhonenumber.text = currentContact?.phone
             return binding.root
         }
-
     }
